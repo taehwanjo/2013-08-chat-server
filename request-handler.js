@@ -36,6 +36,9 @@ console.log('typeof url: ' + typeof urlObj.pathname);
 var pathArray = urlObj.pathname.split("/");
 if (pathArray[1] !== 'classes') {
   //404 error
+  response.writeHead(404, headers);
+  response.end();
+  return;
 } else {
   roomName = pathArray[2];
 }
@@ -69,7 +72,7 @@ debugger;
       } else {
         obj.results.unshift(data);
       }
-      response.writeHead(statusCode, headers);
+      response.writeHead(201, headers);
       //response.end(JSON.stringify(obj));
       response.end();
     });
@@ -79,7 +82,7 @@ debugger;
       //if room is selected
       debugger;
       response.writeHead(statusCode, headers);
-      response.end(JSON.stringify(roomObj));
+      response.end(JSON.stringify(roomObj.results));
     } else {
       //if no room is selected
       response.writeHead(statusCode, headers);

@@ -49,7 +49,7 @@ describe("Node Server Request Listener Function", function() {
    expect(res._ended).toEqual(true);
  });
 
- xit("Should accept posts to /classes/room", function() {
+ it("Should accept posts to /classes/room", function() {
    var req = new StubRequest("http://127.0.0.1:8080/classes/room1",
                              "POST",
                             {username: "Jono",
@@ -83,7 +83,7 @@ describe("Node Server Request Listener Function", function() {
  });
 
 
- xit("Should 404 when asked for a nonexistent file", function() {
+ it("Should 404 when asked for a nonexistent file", function() {
    var req = new StubRequest("http://127.0.0.1:8080/arglebargle",
                              "GET");
    var res = new StubResponse();
